@@ -1,5 +1,6 @@
 import Movie from './components/Movie';
 import PersonalPage from './components/PersonalPage';
+import moviePoster from './assets/movie_poster.png';
 import './App.css';
 
 const App = () => {
@@ -13,7 +14,7 @@ const App = () => {
           director="Джеймс Кемерон"
           year={1991}
           studio="Carolco Pictures"
-          poster="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=400"
+          poster={moviePoster}
         />
       </section>
 
