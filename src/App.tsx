@@ -13,7 +13,7 @@ const App = () => {
           director="Джеймс Кемерон"
           year={1991}
           studio="Carolco Pictures"
-          poster="https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=400&auto=format&fit=crop"
+          poster="https://image.tmdb.org/t/p/w500/5M0j0B18abu8hFcg0NVn45h3X9S.jpg"
         />
       </section>
 
