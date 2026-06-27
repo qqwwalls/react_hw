@@ -1,7 +1,5 @@
 import Movie from './components/Movie';
 import PersonalPage from './components/PersonalPage';
-import moviePoster from './assets/movie_poster.png';
-import portraitImg from './assets/portrait.png';
 import './App.css';
 
 const App = () => {
@@ -11,24 +9,24 @@ const App = () => {
       <section>
         <h1 style={{ fontSize: '24px', color: '#2c3e50', marginBottom: '20px' }}>Завдання 1 (Функціональний компонент)</h1>
         <Movie 
-          title="Дюна: Частина друга"
-          director="Дені Вільнев"
-          year={2024}
-          studio="Warner Bros. Pictures"
-          poster={moviePoster}
+          title="Термінатор 2: Судний день"
+          director="Джеймс Кемерон"
+          year={1991}
+          studio="Carolco Pictures"
+          poster="https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=400&auto=format&fit=crop"
         />
       </section>
 
       <section>
         <h1 style={{ fontSize: '24px', color: '#2c3e50', marginBottom: '20px' }}>Завдання 2 (Класовий компонент)</h1>
         <PersonalPage 
-          name="Олена"
-          phone="+380 99 123 4567"
-          email="olena.dev@example.com"
-          city="Київ, Україна"
-          experience="Студентка курсу «Використання фреймворків Angular, React». Розробляю сучасні веб-додатки."
-          skills={['HTML', 'CSS', 'JavaScript', 'TypeScript', 'React', 'Git']}
-          photo={portraitImg}
+          name="Арнольд Шварценеггер"
+          phone="+1 (310) 555-0199"
+          email="arnold@governator.com"
+          city="Лос-Анджелес, Каліфорнія, США"
+          experience="Голлівудський актор, 38-й Губернатор Каліфорнії, професійний бодібілдер (7-разовий переможець 'Містер Олімпія')."
+          skills={['Бодібілдинг', 'Акторська майстерність', 'Політика', 'I\'ll be back', 'Лідерство']}
+          photo="https://upload.wikimedia.org/wikipedia/commons/a/af/Arnold_Schwarzenegger_by_Gage_Skidmore_4.jpg"
         />
       </section>
 
