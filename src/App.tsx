@@ -1,12 +1,14 @@
 import ProductCard from './components/ProductCard';
 import type { Product } from './types/Product';
+import blackEarphones from './assets/earphones_black.png';
+import orangeEarphones from './assets/earphones_orange.png';
 import './App.css';
 
 const App = () => {
   const products: Product[] = [
     {
       id: 1,
-      imageUrl: "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?q=80&w=300", 
+      imageUrl: blackEarphones, 
       title: "Навушники Esperanza EH187K Black",
       price: 229,
       rating: 0,
@@ -16,7 +18,7 @@ const App = () => {
     },
     {
       id: 2,
-      imageUrl: "https://images.unsplash.com/photo-1606220588913-b3aec04927f8?q=80&w=300", 
+      imageUrl: orangeEarphones, 
       title: "Навушники Canyon GTWS2 (CND-GTWS2O) Orange",
       price: 549,
       oldPrice: 899,
