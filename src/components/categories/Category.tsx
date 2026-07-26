@@ -17,7 +17,6 @@ const Category = ({ category }: { category: CategoryType }) => {
           alt={category.name}
           className="category-image"
           onError={(e) => {
-             // Fallback image if backend image is missing
              (e.target as HTMLImageElement).src = 'https://placehold.co/400x300?text=No+Image';
           }}
         />
