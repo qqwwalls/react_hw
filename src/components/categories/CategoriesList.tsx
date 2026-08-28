@@ -13,7 +13,7 @@ const CategoriesList = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const pageParam = searchParams.get('page');
   const currentPage = pageParam ? parseInt(pageParam, 10) : 1;
-  const itemsPerPage = 4; // Пагінація по 4 елементи
+  const itemsPerPage = 4;
 
   const fetchCategories = async () => {
     setLoading(true);

@@ -1,14 +1,18 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import Modal from './modals/Modal';
+import LoginModal from './modals/LoginModal';
+import RegisterModal from './modals/RegisterModal';
 import './Header.css';
 
 const Header = () => {
   const { email, logout } = useAuth();
-  const navigate = useNavigate();
+  const [isLoginOpen, setIsLoginOpen] = useState(false);
+  const [isRegisterOpen, setIsRegisterOpen] = useState(false);
 
   const handleLogout = () => {
     logout();
-    navigate('/login');
   };
 
   return (
@@ -24,12 +28,20 @@ const Header = () => {
             </div>
           ) : (
             <div className="auth-links">
-              <Link to="/login" className="nav-link">Вхід</Link>
-              <Link to="/register" className="nav-link nav-link-primary">Реєстрація</Link>
+              <button className="nav-link" onClick={() => setIsLoginOpen(true)}>Вхід</button>
+              <button className="nav-link nav-link-primary" onClick={() => setIsRegisterOpen(true)}>Реєстрація</button>
             </div>
           )}
         </nav>
       </div>
+
+      <Modal isOpen={isLoginOpen} onClose={() => setIsLoginOpen(false)}>
+        <LoginModal onClose={() => setIsLoginOpen(false)} />
+      </Modal>
+
+      <Modal isOpen={isRegisterOpen} onClose={() => setIsRegisterOpen(false)}>
+        <RegisterModal onClose={() => setIsRegisterOpen(false)} />
+      </Modal>
     </header>
   );
 };

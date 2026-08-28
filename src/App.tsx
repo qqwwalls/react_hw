@@ -5,8 +5,6 @@ import SearchBar from './components/SearchBar';
 import ProductList from './components/ProductList';
 import CategoriesList from './components/categories/CategoriesList';
 import Header from './components/Header';
-import LoginPage from './components/pages/LoginPage';
-import RegisterPage from './components/pages/RegisterPage';
 import './App.css';
 
 const Home = () => (
@@ -26,8 +24,6 @@ const App = () => {
           <div style={{ paddingBottom: '50px' }}>
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/login" element={<LoginPage />} />
-              <Route path="/register" element={<RegisterPage />} />
             </Routes>
           </div>
         </div>

@@ -1,14 +1,16 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
-import './AuthPages.css';
+import '../pages/AuthPages.css';
 
-const LoginPage = () => {
+interface LoginModalProps {
+  onClose: () => void;
+}
+
+const LoginModal = ({ onClose }: LoginModalProps) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const navigate = useNavigate();
   const { login } = useAuth();
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -34,7 +36,7 @@ const LoginPage = () => {
       const refresh = data.refreshToken || '';
       
       login(access, refresh, email);
-      navigate('/');
+      onClose();
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Невідома помилка під час запиту');
     } finally {
@@ -43,25 +45,23 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="auth-container">
-      <div className="auth-card">
-        <h2>Вхід</h2>
-        {error && <div className="auth-error">{error}</div>}
-        <form onSubmit={handleSubmit} className="auth-form">
-          <div className="form-group">
-            <label>Email</label>
-            <input type="email" required value={email} onChange={e => setEmail(e.target.value)} placeholder="hello@example.com" />
-          </div>
-          <div className="form-group">
-            <label>Пароль</label>
-            <input type="password" required value={password} onChange={e => setPassword(e.target.value)} placeholder="••••••••" />
-          </div>
-          <button type="submit" disabled={isLoading} className="auth-btn">
-            {isLoading ? 'Завантаження...' : 'Увійти'}
-          </button>
-        </form>
-      </div>
+    <div>
+      <h2 style={{ marginTop: 0, textAlign: 'center', marginBottom: '24px', color: '#2c3e50', fontSize: '1.8rem' }}>Вхід</h2>
+      {error && <div className="auth-error">{error}</div>}
+      <form onSubmit={handleSubmit} className="auth-form">
+        <div className="form-group">
+          <label>Email</label>
+          <input type="email" required value={email} onChange={e => setEmail(e.target.value)} placeholder="hello@example.com" />
+        </div>
+        <div className="form-group">
+          <label>Пароль</label>
+          <input type="password" required value={password} onChange={e => setPassword(e.target.value)} placeholder="••••••••" />
+        </div>
+        <button type="submit" disabled={isLoading} className="auth-btn">
+          {isLoading ? 'Завантаження...' : 'Увійти'}
+        </button>
+      </form>
     </div>
   );
 };
-export default LoginPage;
+export default LoginModal;
